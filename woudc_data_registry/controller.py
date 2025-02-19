@@ -288,9 +288,9 @@ def send_feedback(ctx, failed_files, test, ops):
     from_email_address = config.WDR_EMAIL_FROM_USERNAME
     cc_addresses = [config.WDR_EMAIL_CC]
     bcc_addresses = [config.WDR_EMAIL_BCC]
-
+    
     LOGGER.info('Configs all set to send feedback to contributors')
-
+    
     for contributor in template_collection:
         acronym = contributor[0].split(' ')[0].lower()
         specific_message = message.replace(
