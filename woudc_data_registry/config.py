@@ -84,6 +84,10 @@ WDR_EMAIL_CC = os.getenv('WDR_EMAIL_CC')
 WDR_EMAIL_BCC = os.getenv('WDR_EMAIL_BCC')
 WDR_TEMPLATE_PATH = os.getenv('WDR_TEMPLATE_PATH')
 WDR_FILE_TRASH = os.getenv('WDR_FILE_TRASH')
+WDR_WOUDC_STATION_TEMIS_COMBINED = os.getenv(
+    'WDR_WOUDC_STATION_TEMIS_COMBINED')
+WDR_DOBSON_CORRECTION_OUTPUT = os.getenv(
+    'WDR_DOBSON_CORRECTION_OUTPUT')
 
 if not WDR_SEARCH_INDEX_BASENAME:
     msg = 'WDR_SEARCH_INDEX_BASENAME was not set. \
@@ -120,7 +124,8 @@ else:
 
     WDR_DATABASE_URL = f'{WDR_DB_TYPE}://{auth}@{host_port_name}'
 
-if None in [WDR_ERROR_CONFIG, WDR_EXTRA_CONFIG]:
+if None in [WDR_ERROR_CONFIG, WDR_EXTRA_CONFIG,
+            WDR_WOUDC_STATION_TEMIS_COMBINED, WDR_DOBSON_CORRECTION_OUTPUT]:
     msg = 'Central configuration environment variables are not set!'
     LOGGER.error(msg)
     raise EnvironmentError(msg)
